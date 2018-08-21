@@ -1,0 +1,30 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>История переводов</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <link th:href="@{/css/style.css}" rel="stylesheet">
+</head>
+
+    <body>
+        <div th:replace="_header :: head"></div>
+
+
+        <div>
+            <form class="form" action="#" th:action="@{/loginPage}" th:object="${authorization}" method="post" >
+
+                <p>Номер счета отправителя: <input type="text" th:field="*{name}" /></p>
+
+
+                <p>Номер счета получателя: <input type="text" th:field="*{password}"/></p>
+
+                <p>
+                    <button href="#" class="button24" type="submit">Войти</button>
+                </p>
+            </form>
+        </div>
+
+
+        <div th:replace="_footer :: foot">...</div>
+    </body>
+</html>

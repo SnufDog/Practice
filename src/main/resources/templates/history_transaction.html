@@ -1,0 +1,37 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>История переводов</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <link th:href="@{/css/style.css}" rel="stylesheet">
+</head>
+
+    <body>
+    <div th:replace="_header :: head"></div>
+
+        
+    <h1>История переводов</h1>
+        <div class="container">
+            <table class="transactionHist" border="1">
+                <tr>
+                    <th>ID</th>
+                    <th>Счет отправителя</th>
+                    <th>Счет получателя</th>
+                    <th>Сумма перевода</th>
+                    <th>Коментарий</th>
+                    <th>Отчет</th>
+                </tr>
+                <tr reversed th:each ="transaction : ${transactions}">
+                    <td th:utext="${transaction.getId()}">...</td>
+                    <td th:utext="${transaction.getNumberSender()}">...</td>
+                    <td th:utext="${transaction.getNumberRecipient()}">...</td>
+                    <td th:utext="${transaction.getAmount()}">...</td>
+                    <td th:utext="${transaction.getComment()}">...</td>
+                    <td th:utext="${transaction.getReport()}">...</td>
+                </tr>
+            </table>
+        </div>
+
+        <div th:replace="_footer :: foot">...</div>
+    </body>
+</html>

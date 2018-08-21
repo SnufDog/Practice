@@ -1,0 +1,54 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org" xmlns="http://www.w3.org/1999/html">
+    <head>
+        <title>Отчет о переводе</title>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+        <link th:href="@{/css/style.css}" rel="stylesheet">
+    </head>
+
+    <body>
+    <div th:replace="_header :: head"></div>
+        <!--<div>
+            <header>
+                <a class="logo" href='/'><img src="/image/logo.png" alt="" /></a>
+            </header>
+        </div>
+
+        <div class="topnav">
+          <a class="active" href="/transactionForm">Совершить новый перевод</a>
+          <a href="/history_transaction">Посмотреть историю переводов</a>
+        </div>-->
+                
+        <h1>Отчет</h1>
+
+        <p th:text="${transaction.getReport()}"></p>
+
+            <p th:text="'Номер счета отправителя :' + ${transaction.getNumberSender()}" ></p>
+            <p th:text="'Номер счета получателя :' + ${transaction.getNumberRecipient()}" ></p>
+            <p th:text="'Сумма перевода :' + ${transaction.getAmount()}" ></p>
+            <p th:text="'Коментарий :' + ${transaction.getComment()}" ></p>
+
+        <div th:replace="_clientsList :: cList">...</div>
+        <!--<h1>Список клиентов</h1>
+        <div>
+            <details open="close">
+                <table border="1">
+                    <tr>
+                        <th>ID</th>
+                        <th>Имя</th>
+                        <th>Номер счета</th>
+                        <th>Сумма на счету</th>
+                    </tr>
+                    <tr th:each ="client : ${clients}">
+                        <td th:utext="${client.getId()}">...</td>
+                        <td th:utext="${client.getFirstName()}">...</td>
+                        <td th:utext="${client.getAccountNumber()}">...</td>
+                        <td th:utext="${client.getAmount()}">...</td>
+                    </tr>
+                </table>
+            </details>
+        </div>-->
+
+        <div th:replace="_footer :: foot">...</div>
+    </body>
+</html>

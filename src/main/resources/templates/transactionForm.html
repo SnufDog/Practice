@@ -1,0 +1,63 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org" xmlns:text-align="http://www.w3.org/1999/xhtml">
+    <head>
+        <title>Перевод</title>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+        <link th:href="@{/css/style.css}" rel="stylesheet">
+    </head>
+
+     
+    <body>
+        <div th:replace="_header :: head"></div>
+        <!--<div>
+            <header>
+                <a class="logo" href='/'><img src="/image/logo.png" alt="" /></a>
+
+                <div class="topnav">
+                    <a class="active" href="/history_transaction">Посмотреть историю переводов</a>
+                </div>
+            </header>
+        </div>-->
+
+
+        <div>
+            <h1>Форма для перевода</h1>
+            <form class="form" action="#" th:action="@{/transactionForm}" th:object="${transaction}" method="post" >
+
+                <p>Номер счета отправителя: <input type="text" th:field="*{numberSender}" /></p>
+
+
+                <p>Номер счета получателя: <input type="text" th:field="*{numberRecipient}"/></p>
+                <p>Сумма перевода: <input type="number" th:field="*{amount}" step="0.01" min="0" placeholder="0,00"/> ₽</p>
+
+                <p>Комментарий: <input type="text" th:field="*{comment}" /></p>
+                <p>
+                    <button href="#" class="button24" type="submit">Отправить</button>
+                </p>
+            </form>
+        </div>
+
+        <div th:replace="_clientsList :: cList">...</div>
+    <!--<h1>Список клиентов</h1>
+    <div>
+        <details open="close">
+            <table border="1">
+                <tr>
+                    <th>ID</th>
+                    <th>Имя</th>
+                    <th>Номер счета</th>
+                    <th>Сумма на счету</th>
+                </tr>
+                <tr th:each ="client : ${clients}">
+                    <td th:utext="${client.getId()}">...</td>
+                    <td th:utext="${client.getFirstName()}">...</td>
+                    <td th:utext="${client.getAccountNumber()}">...</td>
+                    <td th:utext="${client.getAmount()}">...</td>
+                </tr>
+            </table>
+        </details>
+    </div>-->
+
+        <div th:replace="_footer :: foot">...</div>
+    </body>
+</html>
